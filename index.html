@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Dashboard</title>
+
+  <!-- Render-blocking stylesheet — intentional to prevent FOUC -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Deferred script — DOM is ready when it executes -->
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       HEADER — Theme Toggle
+  ═══════════════════════════════════════════════ -->
+  <header class="site-header">
+    <span class="site-title">Dashboard</span>
+    <button id="theme-toggle" class="btn btn-icon" aria-label="Toggle light/dark mode" title="Toggle theme">
+      <span class="icon-sun">☀️</span>
+      <span class="icon-moon">🌙</span>
+    </button>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN GRID
+  ═══════════════════════════════════════════════ -->
+  <main class="dashboard-grid">
+
+    <!-- ── GREETING WIDGET ──────────────────────── -->
+    <section class="widget widget--greeting" aria-label="Greeting">
+      <p id="clock" class="clock">00:00:00</p>
+      <p id="date"  class="date-display">Loading date…</p>
+      <h1 id="greeting" class="greeting-text">Good Morning</h1>
+
+      <!-- Custom name sub-section (Bonus Challenge 1) -->
+      <div class="name-form">
+        <label for="name-input" class="sr-only">Your name</label>
+        <input
+          type="text"
+          id="name-input"
+          class="input"
+          placeholder="Enter your name…"
+          maxlength="50"
+          autocomplete="off"
+        />
+        <button id="name-save" class="btn btn-primary">Save Name</button>
+      </div>
+    </section>
+
+    <!-- ── FOCUS TIMER WIDGET ────────────────────── -->
+    <section class="widget widget--timer" aria-label="Focus Timer">
+      <h2 class="widget-title">Focus Timer</h2>
+
+      <p id="timer-display" class="timer-display">25:00</p>
+
+      <div class="timer-controls">
+        <button id="timer-start" class="btn btn-primary">▶ Start</button>
+        <button id="timer-stop"  class="btn btn-secondary" disabled>⏸ Stop</button>
+        <button id="timer-reset" class="btn btn-ghost">↺ Reset</button>
+      </div>
+
+      <!-- Custom duration sub-section (Bonus Challenge 2) -->
+      <div class="duration-form">
+        <label for="duration-input" class="label-small">Duration (min)</label>
+        <div class="duration-row">
+          <input
+            type="number"
+            id="duration-input"
+            class="input input--narrow"
+            min="1"
+            max="120"
+            placeholder="25"
+          />
+          <button id="duration-save" class="btn btn-secondary">Set</button>
+        </div>
+        <p id="duration-error" class="error-msg" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ── TO-DO LIST WIDGET ─────────────────────── -->
+    <section class="widget widget--todo" aria-label="To-Do List">
+      <h2 class="widget-title">To-Do List</h2>
+
+      <div class="todo-form">
+        <label for="todo-input" class="sr-only">New task</label>
+        <input
+          type="text"
+          id="todo-input"
+          class="input"
+          placeholder="Add a new task…"
+          maxlength="200"
+          autocomplete="off"
+        />
+        <button id="todo-add" class="btn btn-primary">+ Add</button>
+      </div>
+
+      <ul id="todo-list" class="todo-list" aria-label="Tasks"></ul>
+    </section>
+
+    <!-- ── QUICK LINKS WIDGET ────────────────────── -->
+    <section class="widget widget--links" aria-label="Quick Links">
+      <h2 class="widget-title">Quick Links</h2>
+      <nav id="quick-links" class="quick-links" aria-label="Bookmarks"></nav>
+    </section>
+
+  </main>
+
+</body>
+</html>
